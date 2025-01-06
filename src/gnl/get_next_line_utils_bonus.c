@@ -6,11 +6,11 @@
 /*   By: acaes <acaes@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 21:19:36 by acaes             #+#    #+#             */
-/*   Updated: 2024/12/03 18:49:02 by acaes            ###   ########.fr       */
+/*   Updated: 2025/01/06 12:20:58 by acaes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/get_next_line_bonus.h"
+#include "../../inc/get_next_line.h"
 #include "../../inc/libft.h"
 
 char	*ft_strchr(const char *s, int a)

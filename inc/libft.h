@@ -6,7 +6,7 @@
 /*   By: acaes <acaes@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:08:44 by acaes             #+#    #+#             */
-/*   Updated: 2024/12/03 18:54:14 by acaes            ###   ########.fr       */
+/*   Updated: 2025/01/06 11:49:19 by acaes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

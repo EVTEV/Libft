@@ -6,22 +6,22 @@
 #    By: acaes <acaes@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/03 17:26:12 by acaes             #+#    #+#              #
-#    Updated: 2024/12/03 18:06:28 by acaes            ###   ########.fr        #
+#    Updated: 2025/01/06 12:50:57 by acaes            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 INC = ./inc
-SRCS = ./srcs
-OBJS = ./objs
+SRC = ./src
+OBJ = ./obj
 
-LIBFT = $(wildcard $(SRCS)/libft/*.c)
-PRINTF = $(wildcard $(SRCS)/printf/*.c)
-GNL = $(wildcard $(SRCS)/gnl/*.c)
+LIBFT = $(wildcard $(SRC)/libft/*.c)
+PRINTF = $(wildcard $(SRC)/printf/*.c)
+GNL = $(wildcard $(SRC)/gnl/*.c)
 SOURCE = $(LIBFT) $(PRINTF) $(GNL)
 
-OBJET = $(SOURCE:$(SRCS)/%.c=$(OBJS)/%.o)
+OBJET = $(SOURCE:$(SRC)/%.c=$(OBJ)/%.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I $(INC)
@@ -33,12 +33,12 @@ all: $(NAME)
 $(NAME): $(OBJET)
 	$(AR) $(NAME) $(OBJET)
 
-$(OBJS)/%.o: $(SRCS)/%.c
+$(OBJ)/%.o: $(SRC)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
