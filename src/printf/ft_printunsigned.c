@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaes <acaes@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 13:17:12 by acaes             #+#    #+#             */
-/*   Updated: 2024/12/03 17:09:48 by acaes            ###   ########.fr       */
+/*   Created: 2025/01/13 14:36:08 by acaes             #+#    #+#             */
+/*   Updated: 2025/01/13 14:36:08 by acaes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
+#include "../../inc/ptf.h"
 
-int	ft_putptr(void *ptr)
+int	ft_printunsigned(unsigned int n)
 {
-	int	i;
+	ssize_t	i;
 
-	if (!ptr)
-		return (ft_putstr(NULL_PTR));
 	i = 0;
-	i += ft_putstr("0x");
-	if (i < 0)
+	if (n > 9)
+	{
+		i += ft_printunsigned(n / 10);
+		if (i < 0)
+			return (-1);
+	}
+	if (ft_securchar("0123456789"[n % 10]) < 0)
 		return (-1);
-	return (i + ft_puthexlow((unsigned long)ptr));
+	i++;
+	return (i);
 }

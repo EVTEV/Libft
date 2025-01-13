@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printhexup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaes <acaes@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 16:35:09 by acaes             #+#    #+#             */
-/*   Updated: 2024/12/03 17:10:14 by acaes            ###   ########.fr       */
+/*   Created: 2025/01/13 14:39:21 by acaes             #+#    #+#             */
+/*   Updated: 2025/01/13 14:39:21 by acaes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
+#include "../../inc/ptf.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_printhexup(unsigned long n)
 {
-	size_t	l;
+	int		i;
 
-	if (!s)
-		return (0);
-	l = 0;
-	while (s[l])
-		l++;
-	return (l);
+	if (n == 0)
+		return (ft_securchar('0'));
+	i = 0;
+	if (n >= 16)
+	{
+		i += ft_printhexup(n / 16);
+		if (i < 0)
+			return (-1);
+	}
+	if (ft_securchar("0123456789ABCDEF"[n % 16]) < 0)
+		return (-1);
+	i++;
+	return (i);
 }

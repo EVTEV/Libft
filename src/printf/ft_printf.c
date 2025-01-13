@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
+#include "../../inc/ptf.h"
 
 int	ft_flag(const char *format, va_list *args)
 {
 	if (*format == 'c')
-		return (ft_putchar(va_arg(*args, int)));
+		return (ft_securchar(va_arg(*args, int)));
 	else if (*format == 's')
-		return (ft_putstr(va_arg(*args, char *)));
+		return (ft_printstr(va_arg(*args, char *)));
 	else if (*format == 'p')
-		return (ft_putptr(va_arg(*args, void *)));
+		return (ft_printptr(va_arg(*args, void *)));
 	else if (*format == 'd' || *format == 'i')
-		return (ft_putnbr(va_arg(*args, int)));
+		return (ft_printnbr(va_arg(*args, int)));
 	else if (*format == 'u')
-		return (ft_putuns(va_arg(*args, unsigned int)));
+		return (ft_printunsigned(va_arg(*args, unsigned int)));
 	else if (*format == 'x')
-		return (ft_puthexlow(va_arg(*args, unsigned int)));
+		return (ft_printhexlow(va_arg(*args, unsigned int)));
 	else if (*format == 'X')
-		return (ft_puthexup(va_arg(*args, unsigned int)));
+		return (ft_printhexup(va_arg(*args, unsigned int)));
 	else if (*format == '%')
-		return (ft_putchar('%'));
+		return (ft_securchar('%'));
 	else
-		return (ft_putchar(*format));
+		return (ft_securchar(*format));
 }
 
 int	ft_format(const char *format, va_list *args)
@@ -52,7 +52,7 @@ int	ft_format(const char *format, va_list *args)
 		}
 		else
 		{
-			i = ft_putchar(*format);
+			i = ft_securchar(*format);
 			if (i == -1)
 				return (-1);
 			len += i;

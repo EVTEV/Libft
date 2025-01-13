@@ -16,8 +16,8 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "ft_printf.h"
-# include "get_next_line.h"
+# include "ptf.h"
+# include "gnl.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

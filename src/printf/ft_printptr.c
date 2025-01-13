@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putuns.c                                        :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaes <acaes@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 13:19:43 by acaes             #+#    #+#             */
-/*   Updated: 2024/12/03 17:10:05 by acaes            ###   ########.fr       */
+/*   Created: 2025/01/13 14:37:43 by acaes             #+#    #+#             */
+/*   Updated: 2025/01/13 14:37:43 by acaes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
+#include "../../inc/ptf.h"
 
-int	ft_putuns(unsigned int n)
+int	ft_printptr(void *ptr)
 {
-	ssize_t	i;
+	int	i;
 
+	if (!ptr)
+		return (ft_printstr(NULL_PTR));
 	i = 0;
-	if (n > 9)
-	{
-		i += ft_putuns(n / 10);
-		if (i < 0)
-			return (-1);
-	}
-	if (ft_putchar("0123456789"[n % 10]) < 0)
+	i += ft_printstr("0x");
+	if (i < 0)
 		return (-1);
-	i++;
-	return (i);
+	return (i + ft_printhexlow((unsigned long)ptr));
 }

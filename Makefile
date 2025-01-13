@@ -6,11 +6,12 @@
 #    By: acaes <acaes@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/03 17:26:12 by acaes             #+#    #+#              #
-#    Updated: 2025/01/06 12:50:57 by acaes            ###   ########.fr        #
+#    Updated: 2025/01/07 18:41:20 by acaes            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+MAKEFLAGS = --no-print-directory
 
 INC = ./inc
 SRC = ./src
@@ -26,16 +27,16 @@ OBJET = $(SOURCE:$(SRC)/%.c=$(OBJ)/%.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I $(INC)
 RM = @rm -rf
-AR = @ar -rcs
+AR = ar -rcs
 
 all: $(NAME)
 
 $(NAME): $(OBJET)
-	$(AR) $(NAME) $(OBJET)
+	@$(AR) $(NAME) $(OBJET)
 
 $(OBJ)/%.o: $(SRC)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)

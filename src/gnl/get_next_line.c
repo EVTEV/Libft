@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/get_next_line.h"
+#include "../../inc/gnl.h"
 #include "../../inc/libft.h"
 
 char	*ft_free(char **ptr)
